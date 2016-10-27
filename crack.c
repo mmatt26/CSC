@@ -41,7 +41,7 @@ int main() {
   close(fd);
   for (t=0; t<NUM; t++)
     pthread_create(&tid[t], &attr, hash, password);
-    ith(password, i, 4);
+  ith(password, i, 4);
   for (int j=0; j<M; j++) {
     ith(salt,     j, 2);
     for (int i=0; i<N; i++) {
@@ -49,6 +49,7 @@ int main() {
         hash = crypt(password, salt);
         copy = tid[i];
         pthread_equal(copy,tid);
+        pthread_mutex_unlock(&mutex);
         if (0==strcmp(hash, target)) {
         printf("Password: %s\t\tSalt: %s\t\tHash: %s\t\tTarget: %s\n", password, salt, hash, target);
         exit(1);
