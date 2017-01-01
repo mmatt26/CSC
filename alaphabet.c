@@ -4,9 +4,10 @@
 
 int main() {
   char c;
-  #pragma omp parallel for mun_threads(4)
-    for(c=97; c<=122; c++)
+  
+  #pragma omp parallel for num_threads(4)
+  for(c=97; c<=122; c++)
       printf("%c \n", c);
-    return 0;
+  return 0;
 }
   
