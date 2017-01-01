@@ -1,4 +1,4 @@
-
+//program which uses a signal handler for SIGSEGV to print out more useful information during a segmentation fault.
 #include <sys/types.h>
 #include <execinfo.h>
 #include <stdio.h>
