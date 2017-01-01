@@ -2,11 +2,9 @@
 
 #include <stdio.h>
 
-#define 30
-
 int main() {
   char c;
-  #pragma parallel for mun_threads(4)
+  #pragma omp parallel for mun_threads(4)
     for(c=97; c<=122; c++)
       printf("%c \n", c);
     return 0;
